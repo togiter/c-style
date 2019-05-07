@@ -1,0 +1,1 @@
+export const WEB3_URL = "ws://127.0.0.1:8545";

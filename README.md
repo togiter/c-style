@@ -1,39 +1,48 @@
 # c-style
 
-#### 介绍
-{**以下是码云平台说明，您可以替换此简介**
-码云是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用码云实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+> chain for content
 
-#### 软件架构
-软件架构说明
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
-#### 安装教程
+概述
+基于以太坊区块链的一个文章，日记发布dapp，
+a.用户可以发布，浏览，评论，检索文章
+b.可以发布加密日记
+c.用户发布的文章到达一定的浏览量，点赞数，评论数等，由智能合约奖励一定的积分(token)
+d.根据用户的在线时间，存活度，浏览量，评论数等根据合约算法奖励一定的积分（token）
 
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 使用说明
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 参与贡献
-
-1. Fork 本仓库
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
+技术组合:
+1.使用solidity进行节点智能合约开发，用truffle和ganache-cli进行构建，测试，迁移和部署
+2.使用ipfs进行内容的分布式存储，返回内容和文件的hash保存在存储昂贵的区块链智能合约上面。
+3.使用web3.js对合约进行交互
+4.使用nfsw.js对上传的图片进行鉴黄限制nsfwjs
+5.使用vue作为前端开发框架，配套UI组件element-ui
+6.使用基于go语言的iris web框架 + mysql作为后台进行内容查询和检索
 
 
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
