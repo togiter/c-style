@@ -27,6 +27,7 @@ contract ERC20Impl is ERC20Interface {
     _symbol = symbol;
     _decimals = decimals;
     _totalSupply = total;
+    _balances[msg.sender] = total;
   }
 
   /**

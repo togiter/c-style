@@ -2,6 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <button @click="gotoContent"> 发布内容</button>
+    <el-input type="text" placeholder="el input"></el-input>
     <ul>
       <li>
         <a
@@ -90,7 +92,15 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  methods: {
+    gotoContent(){
+      this.$router.push({
+        path:"/postContent",
+        query:{}
+      });
+    }
+  },
 }
 </script>
 

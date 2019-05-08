@@ -1,15 +1,15 @@
 {
   "contractName": "SafeMath",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Unsigned math operations with safety checks that revert on error.\",\"methods\":{},\"title\":\"SafeMath\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol\":\"SafeMath\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol\":{\"keccak256\":\"0x01771a5e81a5dc80fb48305ca1ced9450a02970b940a954070eabef53422f202\",\"urls\":[\"bzzr://71d73addd665471ab6b6ed4bd17f0738093dd6243418c991ffe1dae97ec941a3\"]}},\"version\":1}",
-  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea165627a7a72305820e7e2a45439202497e0ad5b72c9768bc877f275645ddd7073b078749295d8abd00029",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea165627a7a72305820e7e2a45439202497e0ad5b72c9768bc877f275645ddd7073b078749295d8abd00029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Unsigned math operations with safety checks that revert on error.\",\"methods\":{},\"title\":\"SafeMath\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol\":\"SafeMath\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol\":{\"keccak256\":\"0x01771a5e81a5dc80fb48305ca1ced9450a02970b940a954070eabef53422f202\",\"urls\":[\"bzzr://71d73addd665471ab6b6ed4bd17f0738093dd6243418c991ffe1dae97ec941a3\"]}},\"version\":1}",
+  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea165627a7a72305820a35e266e9ea5432f38b19aa733bbe54a20689cb8651a50fe08b283868d1717dc0029",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea165627a7a72305820a35e266e9ea5432f38b19aa733bbe54a20689cb8651a50fe08b283868d1717dc0029",
   "sourceMap": "126:1897:4:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
   "deployedSourceMap": "126:1897:4:-;;;;;;;;",
   "source": "pragma solidity ^0.5.0;\n\n/**\n * @title SafeMath\n * @dev Unsigned math operations with safety checks that revert on error.\n */\nlibrary SafeMath {\n    /**\n     * @dev Multiplies two unsigned integers, reverts on overflow.\n     */\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\n        // Gas optimization: this is cheaper than requiring 'a' not being zero, but the\n        // benefit is lost if 'b' is also tested.\n        // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522\n        if (a == 0) {\n            return 0;\n        }\n\n        uint256 c = a * b;\n        require(c / a == b, \"SafeMath: multiplication overflow\");\n\n        return c;\n    }\n\n    /**\n     * @dev Integer division of two unsigned integers truncating the quotient, reverts on division by zero.\n     */\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\n        // Solidity only automatically asserts when dividing by 0\n        require(b > 0, \"SafeMath: division by zero\");\n        uint256 c = a / b;\n        // assert(a == b * c + a % b); // There is no case in which this doesn't hold\n\n        return c;\n    }\n\n    /**\n     * @dev Subtracts two unsigned integers, reverts on overflow (i.e. if subtrahend is greater than minuend).\n     */\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\n        require(b <= a, \"SafeMath: subtraction overflow\");\n        uint256 c = a - b;\n\n        return c;\n    }\n\n    /**\n     * @dev Adds two unsigned integers, reverts on overflow.\n     */\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\n        uint256 c = a + b;\n        require(c >= a, \"SafeMath: addition overflow\");\n\n        return c;\n    }\n\n    /**\n     * @dev Divides two unsigned integers and returns the remainder (unsigned integer modulo),\n     * reverts when dividing by zero.\n     */\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\n        require(b != 0, \"SafeMath: modulo by zero\");\n        return a % b;\n    }\n}",
-  "sourcePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol",
+  "sourcePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol",
   "ast": {
-    "absolutePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol",
+    "absolutePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol",
     "exportedSymbols": {
       "SafeMath": [
         858
@@ -1750,7 +1750,7 @@
     "src": "0:2023:4"
   },
   "legacyAST": {
-    "absolutePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol",
+    "absolutePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/SafeMath.sol",
     "exportedSymbols": {
       "SafeMath": [
         858
@@ -3496,7 +3496,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-05-08T09:43:55.119Z",
+  "updatedAt": "2019-05-08T14:41:46.762Z",
   "devdoc": {
     "details": "Unsigned math operations with safety checks that revert on error.",
     "methods": {},

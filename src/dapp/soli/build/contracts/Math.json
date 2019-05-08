@@ -1,15 +1,15 @@
 {
   "contractName": "Math",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Assorted math operations.\",\"methods\":{},\"title\":\"Math\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol\":\"Math\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol\":{\"keccak256\":\"0x7a0016fd5b1488481742d8e60fe5d9186e4e0e88ccad558b820640ec98058895\",\"urls\":[\"bzzr://11263fa6b06cf3d916b3821dc206684ffc30559261b54efa88597d7879b07d2e\"]}},\"version\":1}",
-  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea165627a7a723058201149f364664cd9e4ecba0ae4d2905f7cfc064c1758361ed6a6d0348e130e5c1d0029",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea165627a7a723058201149f364664cd9e4ecba0ae4d2905f7cfc064c1758361ed6a6d0348e130e5c1d0029",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.0+commit.1d4f565a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Assorted math operations.\",\"methods\":{},\"title\":\"Math\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol\":\"Math\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol\":{\"keccak256\":\"0x7a0016fd5b1488481742d8e60fe5d9186e4e0e88ccad558b820640ec98058895\",\"urls\":[\"bzzr://11263fa6b06cf3d916b3821dc206684ffc30559261b54efa88597d7879b07d2e\"]}},\"version\":1}",
+  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea165627a7a7230582056fd10e305993ec3d456ee9a185b0c38f7246408185764584ebac4345ef7abeb0029",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea165627a7a7230582056fd10e305993ec3d456ee9a185b0c38f7246408185764584ebac4345ef7abeb0029",
   "sourceMap": "82:752:3:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
   "deployedSourceMap": "82:752:3:-;;;;;;;;",
   "source": "pragma solidity ^0.5.0;\n\n/**\n * @title Math\n * @dev Assorted math operations.\n */\nlibrary Math {\n    /**\n     * @dev Returns the largest of two numbers.\n     */\n    function max(uint256 a, uint256 b) internal pure returns (uint256) {\n        return a >= b ? a : b;\n    }\n\n    /**\n     * @dev Returns the smallest of two numbers.\n     */\n    function min(uint256 a, uint256 b) internal pure returns (uint256) {\n        return a < b ? a : b;\n    }\n\n    /**\n     * @dev Calculates the average of two numbers. Since these are integers,\n     * averages of an even and odd number cannot be represented, and will be\n     * rounded down.\n     */\n    function average(uint256 a, uint256 b) internal pure returns (uint256) {\n        // (a + b) / 2 can overflow, so we distribute\n        return (a / 2) + (b / 2) + ((a % 2 + b % 2) / 2);\n    }\n}",
-  "sourcePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol",
+  "sourcePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol",
   "ast": {
-    "absolutePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol",
+    "absolutePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol",
     "exportedSymbols": {
       "Math": [
         725
@@ -939,7 +939,7 @@
     "src": "0:834:3"
   },
   "legacyAST": {
-    "absolutePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol",
+    "absolutePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/libs/math/Math.sol",
     "exportedSymbols": {
       "Math": [
         725
@@ -1874,7 +1874,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-05-08T09:43:55.118Z",
+  "updatedAt": "2019-05-08T14:41:46.759Z",
   "devdoc": {
     "details": "Assorted math operations.",
     "methods": {},

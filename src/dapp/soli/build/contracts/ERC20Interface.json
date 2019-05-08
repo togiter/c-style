@@ -181,9 +181,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity >=0.4.24 <0.6;\n\n/**\n * @title ERC20 interface\n * @dev see https://github.com/ethereum/EIPs/issues/20\n */\ninterface ERC20Interface {\n  function totalSupply() external view returns (uint256);\n\n  function balanceOf(address who) external view returns (uint256);\n\n  function allowance(address owner, address spender)\n    external view returns (uint256);\n\n  function transfer(address to, uint256 value) external returns (bool);\n\n  function approve(address spender, uint256 value)\n    external returns (bool);\n\n  function transferFrom(address from, address to, uint256 value)\n    external returns (bool);\n\n  event Transfer(\n    address indexed from,\n    address indexed to,\n    uint256 value\n  );\n\n  event Approval(\n    address indexed owner,\n    address indexed spender,\n    uint256 value\n  );\n}",
-  "sourcePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/ERC20Interface.sol",
+  "sourcePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/ERC20Interface.sol",
   "ast": {
-    "absolutePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/ERC20Interface.sol",
+    "absolutePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/ERC20Interface.sol",
     "exportedSymbols": {
       "ERC20Interface": [
         599
@@ -1018,7 +1018,7 @@
     "src": "0:805:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/ysh/solidity/c-style/src/dapp/soli/contracts/ERC20Interface.sol",
+    "absolutePath": "/Users/yangminghai/git_workplace/solidity/c-style/src/dapp/soli/contracts/ERC20Interface.sol",
     "exportedSymbols": {
       "ERC20Interface": [
         599
@@ -1858,7 +1858,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-05-08T09:43:55.118Z",
+  "updatedAt": "2019-05-08T14:41:46.752Z",
   "devdoc": {
     "details": "see https://github.com/ethereum/EIPs/issues/20",
     "methods": {},
