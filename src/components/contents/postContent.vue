@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import {web3PostContent} from '@/dapp/web3/contract-methods'
+import {dfsAdd} from '@/dapp/dfs/dfs'
 export default {
     data() {
         return {
@@ -36,7 +38,21 @@ export default {
         }
     },
     methods: {
+        onSubmit(){
         
+                let msgJson = JSON.stringify(this.form);
+                console.log('msgjson',msgJson);
+                //上传到分布式文件系统获取hash
+                dfsAdd(msgJson, (err, values) => {
+                    console.log('dfsAdd msgJSON err-value',err, values);
+                    let hash = values[0].hash;
+                     
+                    web3PostContent(this.form.title,hash,Number.parseInt(this.form.cType),(error,result)=>{
+                     console.log('error-result',error, result);
+              
+                });
+                });
+        },
     },
 }
 </script>

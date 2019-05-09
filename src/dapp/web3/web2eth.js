@@ -4,7 +4,7 @@ import { WEB3_URL } from '../configs';
 const fs = require('fs');
 // var solc = require('solc');
 const Web3 = require('web3');
-const contractJson = require('./../smartContract/build/contracts/Icu.json')
+const contractJson = require('./../soli/build/contracts/CStyle.json')
 // let source = fs.readFileSync('../smartContract/contracts/Icu.sol','utf-8').toString();
 // let result = solc.compile(source);
 // console.log('sol source',source);
@@ -13,7 +13,7 @@ const contractJson = require('./../smartContract/build/contracts/Icu.json')
 var web3;
 var contract;
 loadWeb3(WEB3_URL);
-let addr = '0x595EF7E71828D0539CB6345Bc41fAF7282A4f0F0';
+let addr = '0xbFC0A510881eb274063f3B68f97eDcfEF8dc419E';
 console.log('cj',contractJson);
 getContract(contractJson['abi'],addr);
 //contractEvent();
@@ -29,6 +29,10 @@ function loadWeb3(url){
     }
     console.log("web3", web3);
     }
+
+    web3.eth.net.getId().then(resp=>{
+        console.log('networkId',resp);
+    });
 
     function getContract(abi,addr){
     if(contract !== undefined && contract != null) return contract;

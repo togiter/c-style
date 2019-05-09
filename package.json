@@ -13,9 +13,23 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@tensorflow/tfjs": "github:tensorflow/tfjs",
+    "big-number": "^2.0.0",
+    "bs58": "^4.0.1",
+    "core-js": "^2.6.5",
+    "cube-ui": "~1.12.15",
     "element-ui": "^2.8.2",
+    "ipfs": "^0.35.0",
+    "nsfwjs": "^0.1.1",
+    "register-service-worker": "^1.6.2",
+    "serve": "^11.0.0",
+    "solc": "^0.5.7",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "web3": "^1.0.0-beta.55"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -57,7 +71,7 @@
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
     "vue-jest": "^1.0.2",
-    "vue-loader": "^13.3.0",
+    "vue-loader": "^13.7.3",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
