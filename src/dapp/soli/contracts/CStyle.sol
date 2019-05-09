@@ -1,6 +1,6 @@
 pragma solidity  >= 0.4.24 <=0.6;
-import "./ERC20Impl.sol"
-contract CStyle is ERC20Impl {
+import "./CStyleCoin.sol"
+contract CStyle {
     struct Content{
         address owner;  //作者  
         uint256 dateTime; 
@@ -10,6 +10,8 @@ contract CStyle is ERC20Impl {
         
     }
 
+    CStyleCoin private CCoin;
+
     uint256 contentsCount;
     mapping(uint256=>Content) contents;
     /*
@@ -18,8 +20,8 @@ contract CStyle is ERC20Impl {
     event PostContent(address indexed owner,bytes32 indexed title,bytes32 indexed cHash,uint8 cType);
 
     //构造函数
-    constructor(string memory name, string memory symbol, uint8 decimals,uint256 total)
-     ERC20Impl(name,symbol,decimals,total) public {
+    constructor(string memory name, string memory symbol, uint8 decimals,uint256 total) public {
+         CCoin = CStyleCoin(name,symbol,decimals,total);
     }
 
     /*
@@ -39,6 +41,8 @@ contract CStyle is ERC20Impl {
         emit PostContent(msg.sender,_title,_cHash,_type);
 
     }
+
+    
 
     /*
     *获取发布的内容

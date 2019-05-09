@@ -10,7 +10,7 @@ import "./libs/math/SafeMath.sol";
  * https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
  * Originally based on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol
  */
-contract ERC20Impl is ERC20Interface {
+contract CStyleCoin is ERC20Interface {
   using SafeMath for uint256;
 
   mapping (address => uint256) private _balances;
