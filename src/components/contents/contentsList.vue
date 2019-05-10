@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {web3GetContentById,web3GetContentsCount} from '@/dapp/web3/contract-methods'
+import {web3GetContentById,web3GetContentsCount} from '@/dapp/web3/content'
 export default {
     data() {
         return {

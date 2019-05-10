@@ -16,5 +16,15 @@ export default new Router({
       name: 'postContent',
       component: () => import('@/components/contents/postContent')
     },
+    {
+      path: '/contentsList',
+      name: 'contentsList',
+      component: () => import('@/components/contents/contentsList')
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: () => import('@/components/accounts/account')
+    },
   ]
 })

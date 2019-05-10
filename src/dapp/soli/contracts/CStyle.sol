@@ -6,14 +6,12 @@ contract CStyle is CStyleCoin {
         uint256 dateTime; 
         bytes32 title; //标题
         uint8  cType;   //内容类型 0，文章 1.日记，2。xx
-        bytes32 cHash;  //内容hash
+        bytes32 cHash;  //ipfs内容hash
         
     }
 
-    CStyleCoin private CCoin;
-
-    uint256 contentsCount;
-    mapping(uint256=>Content) contents;
+    uint256 contentsCount;//内容数量
+    mapping(uint256=>Content) contents; //内容
     /*
     *发布成功后触发事件
     */
@@ -55,8 +53,20 @@ contract CStyle is CStyleCoin {
         cHash = content.cHash;
         cType = content.cType;
     }
-
+   /*
+   *获取内容总条数
+   */
     function getContentsCount() public view returns (uint256){
         return contentsCount;
+    }
+
+    /*
+    *获取
+    */
+    function tokenInfo() public view returns(string name,string symbol,uint256 total,uint256 decimals) {
+        name = name();
+        symbol = symbol();
+        total = totalSupply();
+        decimals  decimals();
     }
 }

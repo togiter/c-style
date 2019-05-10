@@ -3,85 +3,10 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <button @click="gotoContent"> 发布内容</button>
-    <el-input type="text" placeholder="el input"></el-input>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <button @click="gotoList"> 内容列表</button>
+    <button @click="gotoAccount"> 账号操作</button>
+
+
   </div>
 </template>
 
@@ -97,6 +22,19 @@ export default {
     gotoContent(){
       this.$router.push({
         path:"/postContent",
+        query:{}
+      });
+
+    },
+    gotoAccount(){
+      this.$router.push({
+        path:"/account",
+        query:{}
+      });
+    },
+    gotoList(){
+      this.$router.push({
+        path:"/contentsList",
         query:{}
       });
     }
