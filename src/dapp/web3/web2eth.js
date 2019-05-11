@@ -13,9 +13,16 @@ const contractJson = require('./../soli/build/contracts/CStyle.json')
 var web3;
 var contract;
 loadWeb3(WEB3_URL);
-let addr = '0xbFC0A510881eb274063f3B68f97eDcfEF8dc419E';
-console.log('cj',contractJson);
-getContract(contractJson['abi'],addr);
+let addr;
+web3.eth.net.getId().then(resp=>{
+    console.log('networkId',resp);
+    addr = contractJson['networks'][resp].address;
+    getContract(contractJson['abi'],addr);
+    console.log('addr',addr);
+});
+
+
+
 //contractEvent();
 function loadWeb3(url){
     web3 = new Web3(url);
@@ -30,9 +37,7 @@ function loadWeb3(url){
     console.log("web3", web3);
     }
 
-    web3.eth.net.getId().then(resp=>{
-        console.log('networkId',resp);
-    });
+   
 
     function getContract(abi,addr){
     if(contract !== undefined && contract != null) return contract;
@@ -45,17 +50,11 @@ function loadWeb3(url){
     contract = web3.eth.Contract(abi,addr);
     console.log("contract",contract);
    }
+
    function contractEvent(){
        if(contract === 'undefined' || contract == null){
            getContract();
        }
-       contract.events.logEnterprise((err,event)=>{
-           console.log('eventInfo',err,event);
-       }).on('data',(result)=>{
-        console.log('data',result);
-       }).on('changed',(result)=>{
-        console.log('changed',result);
-       }).on('error',console.error);
    }
 export {
     web3,

@@ -1,6 +1,6 @@
 import{web3,contract} from './web2eth'
 import {hexToHash,hashToHex,strToBytes,bytesToStr,uint8ArrayToStr} from '../../utils/convert'
-import {dfsCat} from '../dfs/dfs'
+import {dfsCat,bs582hash,hash2bs58} from '../dfs/dfs'
 let BN = require('big-number')
 let defaultAccount;
 web3.eth.getAccounts().then((err,values)=>{
@@ -11,7 +11,7 @@ web3.eth.getAccounts().then((err,values)=>{
 });
 console.log('defautAccount:',defaultAccount);
 if(defaultAccount === 'undefined' || defaultAccount == null){
-    defaultAccount = '0xd7b4b679620884fde28c5cdb00d8641f30993bec';
+    defaultAccount = '0xc7483293f8a38dcceb6339aaf4d1d51bf9664164';
 }
 
 const querier = {from:defaultAccount};
@@ -32,6 +32,19 @@ export function web3GetContentsCount(callback){
     });
 }
 
+/*
+*根据hash从ipfs获取内容
+*/
+export function web3GetContentByHash(hash,callback){
+    dfsCat(hash,(err,result)=>{
+        console.log(err,'resevor Hash',uint8ArrayToStr(result));
+        // callback(err,uint8ArrayToStr(result));
+        if(typeof callback === 'function'){
+            //uint8ArrayToStr
+            callback(err,uint8ArrayToStr(result));
+        }
+     });
+}
 /*
 *根据id获取内容
 */
@@ -66,7 +79,7 @@ export function web3GetContentById(id,callback){
             return;
         }
         if(cHash === 'undefined' || cHash == null || cHash.lenght <= 0){
-            console.log('miss  chash ');
+            console.log('miss  chash ',cHash);
             return;
         }
         let bytesTitle;
@@ -108,7 +121,7 @@ export function web3GetContentById(id,callback){
         cType = web3.utils.toHex(cType);
         console.log('cType',cType);
         //hash值字符串超过32字节，不能直接转为byte32，要先加入前缀0x转为16进制再转为bytes32
-        contract.methods.postContent(title,hex2bytes,cType).send(querier).then((result)=>{
+        contract.methods.postContent(bytesTitle,hex2bytes,cType).send({from:defaultAccount}).then((result)=>{
            console.log('--result',result);
             if(callback && typeof callback == 'function'){
                 callback(null,result);

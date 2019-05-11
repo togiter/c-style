@@ -19,7 +19,14 @@ export default new Router({
     {
       path: '/contentsList',
       name: 'contentsList',
-      component: () => import('@/components/contents/contentsList')
+      component: () => import('@/components/contents/contentsList'),
+      meta:{title:"列表页"}
+    },
+    {
+      path: '/contentDetails',
+      name: 'contentDetails',
+      component: () => import('@/components/contents/contentDetails'),
+      meta:{title:"详情页"}
     },
     {
       path: '/account',

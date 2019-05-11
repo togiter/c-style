@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import '@/dapp/web3/web2eth.js'
 Vue.use(ElementUI);
 import './all-element'
 Vue.config.productionTip = false

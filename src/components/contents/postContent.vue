@@ -43,9 +43,8 @@ export default {
                 let msgJson = JSON.stringify(this.form);
                 console.log('msgjson',msgJson);
                 //上传到分布式文件系统获取hash
-                dfsAdd(msgJson, (err, values) => {
-                    console.log('dfsAdd msgJSON err-value',err, values);
-                    let hash = values[0].hash;
+                dfsAdd(msgJson, (err, value) => {
+                    let hash = value;
 
                     web3PostContent(this.form.title,hash,Number.parseInt(this.form.cType),(error,result)=>{
                      console.log('error-result',error, result);

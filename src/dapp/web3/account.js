@@ -4,20 +4,33 @@ import {dfsCat} from '../dfs/dfs'
 let BN = require('big-number')
 const EthTX = require('ethereumjs-tx')
 
-const defaultAccount = "";
+const defaultAccount = "0xc7483293f8a38dcceb6339aaf4d1d51bf9664164";
 const querier = {from:defaultAccount};
 
 //++++++私链++++++++//
 
 /*
 *查询代币信息
+*返回 
+*na —— 代币名称 sym -- 代币符号
+*deci --代币精度 total -- 总代币数量
  */
-export default function web3TokenInfo() {
-   contract.methods.tokenInfo().call(querier).then((err,result)=>{
-     console.log("tokenInfo err",err,result)
-     if(!err){
-
-     }else {
+export function web3TokenInfo(callback) {
+  console.log("cc",contract)
+  contract.methods.tokenInfo().call(querier).then((result)=>{
+     console.log("tokenInfo",result)
+     if(result){
+        let name = result.na.toString();
+        let decimals = result.deci.toString(10);
+        let total = result.total.toString(10);
+        let symbol = result.sym;
+        let item = {
+          name:name,
+          decimals:decimals,
+          total:total,
+          symbol:symbol,
+        };
+        callback(item);
 
      }
    });
@@ -27,8 +40,8 @@ export default function web3TokenInfo() {
 /*
  *授权指定账号及余额
  */
-export default  function web3Approval(_to,value,callback) {
-    contract.methods.approval(to,value).send(querier).then((err,result)=>{
+export  function web3Approval(_from,_to,value,callback) {
+    contract.methods.approve(_to,value).send({from:_from}).then((err,result)=>{
       console.log("approval err",err,result)
         if(!err){
 
@@ -43,7 +56,7 @@ export default  function web3Approval(_to,value,callback) {
 * // 查询以太币余额
 web3.eth.getBalance(currentAccount).then(console.log);
  */
-export default function web3BalanceOf(_to,callback) {
+export function web3BalanceOf(_to,callback) {
   contract.methods.balanceOf(_to).call(querier).then((err,result)=>{
     console.log("web3BalanceOf err",err,result)
     if(!err){
@@ -58,7 +71,7 @@ export default function web3BalanceOf(_to,callback) {
 *查看某个账号允许另一个账号可使用的代币数量
 *
  */
-export default function web3Allowance(_sender,_spender) {
+export function web3Allowance(_sender,_spender) {
   contract.methods.allowance(_sender,_spender).call(querier).then((err,result)=>{
     console.log("web3Allowance err",err,result)
     if(!err){
@@ -69,9 +82,7 @@ export default function web3Allowance(_sender,_spender) {
   });
 }
 
-
 /*
-
 代币转账
 // 以太币转账
 web3.eth.sendTransaction({
@@ -83,7 +94,7 @@ web3.eth.sendTransaction({
     console.log(receipt);
  }
  */
-export default function web3Transfer(_to,value,callback) {
+export function web3Transfer(_to,value,callback) {
   contract.methods.transfer(_to,value).send(querier).then((err,result)=>{
     console.log("transfer err",err,result)
     if(!err){
@@ -100,7 +111,7 @@ export default function web3Transfer(_to,value,callback) {
  * _to  被授权人
  * value 授权代币数量
  */
-export default function web3TransferFrom(_from,_to,value,callback) {
+export function web3TransferFrom(_from,_to,value,callback) {
    contract.methods.transferFrom(_from,_to,value).send(querier).then((err,result)=>{
      console.log("transferFrom err",err,result)
      if(!err){
@@ -119,7 +130,7 @@ export default function web3TransferFrom(_from,_to,value,callback) {
 /*
  *以太坊主链转账
  */
-export default function web3EthTransfer(_to,value,callback) {
+export function web3EthTransfer(_to,value,callback) {
   //获取当前账号交易的nonce
   web3.eth.getTransactionCount(defaultAccount,web3.eth.defaultBlock.pending).then(nonce=>{
     //交易数据

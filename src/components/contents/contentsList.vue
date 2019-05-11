@@ -1,7 +1,7 @@
 <template>
     <div class="list">
         <ul v-for="(item,i) in list" :key=i>
-            <div>
+            <div @click="gotoDetails(item)">
                 <p> {{item.name}}</p>
                 <p><span>{{item.dateTime}}</span><span>{{item.owner}}</span></p>
             </div>
@@ -25,6 +25,14 @@ export default {
         this.getTotal();
     },
     methods: {
+        gotoDetails(item){
+            this.$router.push({
+                path:"/contentDetails",
+                query:{
+                    content:item,
+                }
+            });
+        },
         getTotal(){
             web3GetContentsCount((err,count)=>{
                 if(!err && count > 0){

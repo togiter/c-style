@@ -1,4 +1,4 @@
-const Dfs = require('ipfs');
+const Dfs = require('ipfs-js');
 
 /*
 var ipfsAPI = require('ipfs-api')
@@ -18,7 +18,8 @@ var ipfs = ipfsAPI({host: '1.1.1.1', port: '80', 'api-path': '/ipfs/api/v0'})
 //创建并返回分布式文件系统dfs节点
 var dfs;
 if(dfs==undefined || dfs == null) {
-    dfs = new Dfs();
+   dfs = Dfs;//({host: 'localhost', port: '5001', protocol: 'http'});
+   dfs.setProvider({host: 'localhost', port: '5001'})
     console.log('new dfs',dfs);
 }
 // console.log('dfs state',dfs.state);
@@ -61,13 +62,26 @@ if(dfs==undefined || dfs == null) {
   content: <data> // A Buffer, Readable Stream or Pull Stream with the contents of the file
 }
  */
+
+export function hash2bs58(hash){
+  return dfs.utils.base58ToHex(hash)
+}
+
+export function bs582hash(bs58){
+  return dfs.utils.hexToBase58(bs58)
+}
+
+
+ /*
+ *
+ */
 function dfsAdd(data,callback) {
   console.log('data',data);
   let type = typeof data;
   type = type.toLocaleLowerCase();
   console.log("add dfs",data);
   if(type == 'string'){
-    data = Dfs.Buffer.from(data);
+    // data = Dfs.Buffer.from(data);
   }else if(type == 'object') {
 
   }else if (type == 'array') {

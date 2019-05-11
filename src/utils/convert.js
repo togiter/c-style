@@ -55,7 +55,7 @@ function strToBytes(str,bits){
     }
     let bitsLen = bytesLen(str);
     //补位
-    bits = bits - bitsLen;
+    // bits = bits - bitsLen;
     for(var i = 0; i < Math.max(len,bits); i++) {
         if(i >= len && i < bits){ //lenght < bits
             c = 0x000000;//位数不够，补0
