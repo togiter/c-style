@@ -26,6 +26,8 @@
 
 <script>
 import {web3PostContent} from '@/dapp/web3/content'
+import {aesEncrypt,aesDecrypt} from "../../utils/crypto";
+
 import {dfsAdd} from '@/dapp/dfs/dfs'
 export default {
     data() {
@@ -41,6 +43,11 @@ export default {
         onSubmit(){
 
                 let msgJson = JSON.stringify(this.form);
+                let key = '111';
+                let retf = aesEncrypt(msgJson,key);
+                console.log('en',retf);
+                let rete = aesDecrypt(retf,key);
+                console.log('den',rete);
                 console.log('msgjson',msgJson);
                 //上传到分布式文件系统获取hash
                 dfsAdd(msgJson, (err, value) => {
